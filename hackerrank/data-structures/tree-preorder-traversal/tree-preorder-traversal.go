@@ -1,5 +1,5 @@
-// Package treeinordertraversal contains solution to https://hackerrank.com/challenges/tree-inorder-traversal
-package treeinordertraversal
+// Package treepreordertraversal contains solution to https://hackerrank.com/challenges/tree-preorder-traversal
+package treepreordertraversal
 
 import (
 	"fmt"
@@ -36,20 +36,16 @@ func insert(root *node, data int) *node {
 	return root
 }
 
-// Ενδο-διατεταγμένη (inorder)
-//   - Αναδροµική διέλευση αριστερού υποδένδρου.
-//   - Επεξεργασία ϱίζας.
-//   - Αναδροµική διέλευση δεξιού υποδένδρου.
-func inOrder(root *node, w io.Writer) {
+func preOrder(root *node, w io.Writer) {
 	if root == nil {
 		return
 	}
-	inOrder(root.left, w)
 	fmt.Fprint(w, root.data, " ")
-	inOrder(root.right, w)
+	preOrder(root.left, w)
+	preOrder(root.right, w)
 }
 
-// // main() for hackerrank editor (reads input from stdin)
+// main() for hackerrank editor (reads input from stdin)
 // func solution() {
 // 	var (
 // 		nodeLen int
@@ -61,5 +57,5 @@ func inOrder(root *node, w io.Writer) {
 // 		fmt.Scanf("%d", &data)
 // 		root = insert(root, data)
 // 	}
-// 	inOrder(root, os.Stdout)
+// 	preOrder(root, os.Stdout)
 // }
