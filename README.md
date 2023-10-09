@@ -1,9 +1,3 @@
-# coding_challenges
-
-This repository contains my solutions to coding problems across various websites (for now hackerrank only).
-
-Disclaimer: The folder and file naming is bad, I know, but it helps navigating through problems, by being identical to the actual problem titles
-
 # Coding Challenges
 
 This repository contains my solutions to coding challenges primarily from HackerRank. The challenges range from algorithms to data structures and more.
