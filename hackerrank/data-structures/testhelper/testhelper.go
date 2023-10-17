@@ -105,6 +105,7 @@ func expectedOutput(testCase string) (string, error) {
 	}
 	// expectedOutput := strings.TrimRight(string(expectedOutputB), "\r\n")
 	expectedOutput := strings.TrimRight(string(contents), "\n")
+	expectedOutput = strings.TrimRight(expectedOutput, " ")
 	return expectedOutput, nil
 }
 
@@ -118,6 +119,7 @@ func actualOutput(resultFilePath string) (string, error) {
 
 	actualOutput := strings.TrimSuffix(string(contents), "\n")
 	actualOutput = strings.TrimSuffix(actualOutput, "\n")
+	actualOutput = strings.TrimSuffix(actualOutput, " ")
 	return actualOutput, nil
 }
 
