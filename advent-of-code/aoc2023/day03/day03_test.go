@@ -1,4 +1,4 @@
-package day02
+package day03
 
 import "testing"
 
@@ -6,7 +6,7 @@ func TestSolution2(t *testing.T) {
 	t.Run("input 0", func(t *testing.T) {
 		// Arrange
 		inputFile := "input0.txt"
-		expected := 2286
+		expected := 467835
 
 		// Act
 		actual := solution2(inputFile)
@@ -20,7 +20,7 @@ func TestSolution2(t *testing.T) {
 	t.Run("input 1", func(t *testing.T) {
 		// Arrange
 		inputFile := "input1.txt"
-		expected := 56580
+		expected := 93994191
 
 		// Act
 		actual := solution2(inputFile)
@@ -36,7 +36,7 @@ func TestSolution1(t *testing.T) {
 	t.Run("input 0", func(t *testing.T) {
 		// Arrange
 		inputFile := "input0.txt"
-		expected := 8
+		expected := 4361
 
 		// Act
 		actual := solution1(inputFile)
@@ -50,7 +50,7 @@ func TestSolution1(t *testing.T) {
 	t.Run("input 1", func(t *testing.T) {
 		// Arrange
 		inputFile := "input1.txt"
-		expected := 2727
+		expected := 553825
 
 		// Act
 		actual := solution1(inputFile)

@@ -1,3 +1,4 @@
+// Package day02 provides solutions for aoc day 2 "Cube Conundrum" problem https://adventofcode.com/2023/day/2
 package day02
 
 import (
@@ -20,6 +21,7 @@ type cube struct {
 	quantity int
 }
 
+// part 1 solution
 func solution1(inputFile string) int {
 	text, err := helpers.ReadInputFile(inputFile)
 	if err != nil {
@@ -43,6 +45,7 @@ func solution1(inputFile string) int {
 	return idSum
 }
 
+// part 2 solution
 func solution2(inputFile string) int {
 	text, err := helpers.ReadInputFile(inputFile)
 	if err != nil {

@@ -1,3 +1,4 @@
+// Package day01 provides solutions for aoc day 1 "Trebuchet?!" problem https://adventofcode.com/2023/day/1
 package day01
 
 import (
@@ -8,10 +9,10 @@ import (
 	"github.com/Huray-hub/coding_challenges/advent-of-code/aoc2023/helpers"
 )
 
-type num int
+type number int
 
 const (
-	one num = iota + 1
+	one number = iota + 1
 	two
 	three
 	four
@@ -22,28 +23,44 @@ const (
 	nine
 )
 
-func (n num) String() string {
+func (n number) String() string {
 	return [...]string{"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}[n]
 }
 
-func day01(inputFile string) int {
+// part 2 solution
+func solution2(inputFile string) int {
 	text, err := helpers.ReadInputFile(inputFile)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	var sum int
+	var calibrationSum int
 	for _, line := range text {
-		sum += extractNumber(line)
+		calibrationSum += extractCalibration(line)
 	}
-	return sum
+	return calibrationSum
 }
 
-func extractNumber(line string) int {
+// part 1 solution
+func solution1(inputFile string) int {
+	text, err := helpers.ReadInputFile(inputFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var calibrationSum int
+	for _, line := range text {
+		calibrationSum += extractCalibrationWithoutLetters(line)
+	}
+	return calibrationSum
+}
+
+func extractCalibration(line string) int {
+	var first, second rune
+
 	var (
-		first, second rune
-		i             int
-		char          rune
+		i    int
+		char rune
 	)
 
 	for i, char = range line {
@@ -73,6 +90,28 @@ func extractNumber(line string) int {
 
 	if second == 0 {
 		second = first
+	}
+
+	number := (int(first)-'0')*10 + (int(second) - '0')
+	return number
+}
+
+func extractCalibrationWithoutLetters(line string) int {
+	var first, second rune
+
+	for _, char := range line {
+		if unicode.IsDigit(char) {
+			first = char
+			break
+		}
+	}
+
+	for j := len(line) - 1; j >= 0; j-- {
+		char := rune(line[j])
+		if unicode.IsDigit(char) {
+			second = char
+			break
+		}
 	}
 
 	number := (int(first)-'0')*10 + (int(second) - '0')
